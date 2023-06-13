@@ -8,6 +8,7 @@ import Home from './components/Home';
 import AskQuestion from './components/AskQuestion';
 import ViewQuestion from './components/ViewQuestion';
 
+
 function App() {
   return (
     <div className="App">
@@ -16,7 +17,7 @@ function App() {
      <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/add-question" element={<AskQuestion/>} />
-      <Route path="/question" element={<ViewQuestion/>} />
+      <Route path="/question/:id" element={<ViewQuestion/>} />
      </Routes>
      </BrowserRouter>
     </div>

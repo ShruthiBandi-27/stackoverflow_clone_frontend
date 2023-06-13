@@ -2,7 +2,7 @@ import { Avatar } from '@mui/material'
 import React from 'react'
 import './AllQuestions.css';
 import { Link } from "react-router-dom";
-
+import parse from 'html-react-parser';
 
 function AllQuestions({key, value}) {
   return (
@@ -19,16 +19,18 @@ function AllQuestions({key, value}) {
                         <span>answers</span>
                     </div>
                     <div className="all-option">
-                        <p>0</p>
-                        <small> 2views</small>
+                        <p>2</p>
+                        <small> views</small>
                     </div>
                 </div>
             </div>
             <div className="question-answer">
-                <Link to="/question">{value.title}</Link>
+                {/* <Link to={`/question?id=${value._id}`}>{value.title}</Link> */}
+                <Link to={`/question/${value._id}`}>{value.title}</Link>
                 <div style={{maxWidth: "90%"}}>
                  {/* //HTML parser */}
-                 I need to make user cards where on clicking the follow button it changes color and name and adds 1 to following. I receive such users from API , 12 users, and I need to be able to choose more than 1 ...
+                 {/* {value.body} */}
+                 <div>{parse(value.body)}</div>
                 </div>
                 <div  style={{display: "flex"}}>
                 {value.tags && value.tags.map((tag) => (
@@ -52,7 +54,7 @@ function AllQuestions({key, value}) {
                 <div className="auth-details">
                     <Avatar/>
                     <p>Shruthi</p>
-                    <small>{value.created_at}</small>
+                    <small>{new Date(value.created_at).toLocaleString()}</small>
                 </div>
             </div>
         </div>

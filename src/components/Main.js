@@ -34,7 +34,7 @@ function Main() {
                 </Link>
             </div>
             <div className="main-desc">
-                <p>questions</p>
+                <p>{questions ? questions.length: 0} questions</p>
                 <div className="main-filter">
                     <div className="main-tabs">
                         <div className="main-tab">
